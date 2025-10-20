@@ -1,0 +1,438 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+:root {
+  /* height reserved for the header; used to position the sticky subheader */
+  --header-height: 60px;
+}
+
+/* body {
+  margin: 1rem;
+} */
+
+.search-box {
+  display: flex;
+  gap: 1rem;
+  margin-right: 5px; /* allow it to take remaining space and shrink */
+  min-width: 0; /* allow children to shrink instead of overflowing */
+}
+
+.search-box-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.5rem;
+  min-width: 0;
+}
+
+.input-search {
+  display: flex;
+  padding: 0.55rem 1rem;
+  border: 1px solid #636363;
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+  border-right: 0;
+  width: 10rem;
+  font-size: 1rem;
+  display: none;
+}
+
+.input-search:focus {
+  outline: none;
+  border: 1px solid rgb(4, 111, 251);
+}
+
+#todos {
+  font-weight: bold;
+  color: white;
+  background-color: black;
+}
+
+.btn-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.btn-search:hover {
+  cursor: pointer;
+  background-color: #cfcfcf;
+}
+
+.icon-search img {
+  width: 20px;
+}
+
+.menu {
+  display: flex;
+  border: none;
+  background-color: transparent;
+}
+
+.menu-img:hover {
+  cursor: pointer;
+}
+
+.botton-menu {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.crear-botton {
+  background-color: #e0e0e0;
+  border-radius: 1.5rem;
+}
+
+.btn-crear p {
+  font-size: 40px;
+  line-height: 0.8;
+}
+
+.btn-crear {
+  display: flex;
+  font-size: 1rem;
+  padding: 0.16rem;
+  align-items: center;
+  gap: 0.2rem;
+  font-weight: 550;
+  background-color: #e0e0e0;
+  border-radius: 1.5rem;
+  border: none;
+  outline: none;
+}
+
+.btn-crear:hover {
+  cursor: pointer;
+  background-color: #cfcfcf;
+}
+/* Phones and small screens: hide the text input and show only the icon button */
+
+.header {
+  width: 100%;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.25rem;
+}
+
+.header-right {
+  display: flex;
+  gap: 0.15rem;
+  align-items: center; /* push this group to the far right */
+}
+
+.btn-logo {
+  padding: 1rem;
+}
+
+.button-youtube {
+  display: flex;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+}
+
+.logo-youtube {
+  height: 1.2rem;
+}
+
+.logo-youtube:hover {
+  cursor: pointer;
+}
+
+.btn-avatar {
+  border: none;
+  margin-right: 10px;
+  background-color: transparent;
+}
+
+.btn-avatar:hover {
+  cursor: pointer;
+}
+
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.campana-button {
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+}
+
+.campana-button:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.btn-microphone {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0.2rem;
+  border-radius: 50%;
+  transition: background-color 0.15s ease, transform 0.08s ease;
+}
+
+.btn-microphone img {
+  width: 1.4rem;
+  height: 1.4rem;
+  display: block;
+}
+
+.btn-microphone:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.06);
+  transform: scale(1.1);
+}
+
+.main-content {
+  display: flex;
+}
+
+.sidebar {
+  display: none;
+}
+
+.content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 10px;
+  overflow-x: hidden;
+}
+
+.menu-img {
+  height: 20px;
+}
+
+.subheader {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.8rem;
+  padding: 0.5rem;
+  overflow-x: auto;
+  background: white; /* matches header background */
+  z-index: 9; /* below header but above content */
+}
+
+.item {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0.5rem;
+  background-color: #e0e0e0;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
+
+.subheader div {
+  max-width: fit-content;
+  font-size: small;
+  white-space: nowrap;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.video-grid div {
+  background-color: #e0e0e0;
+  border-radius: 0.5rem;
+}
+
+.btn-search .icon-search img {
+  height: 1.4rem;
+  width: 1.4rem;
+  display: block;
+}
+
+.img-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.tamano-music {
+  width: 100%;
+  border-radius: 15px;
+  height: 277px;
+}
+
+.Icono-Music {
+  display: flex;
+  gap: 10px;
+  font-weight: bold;
+  align-items: start;
+}
+
+.titulo-cancion {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.autor-music {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: small;
+  color: #606060;
+}
+
+.Visualicer {
+  font-size: small;
+  color: #606060;
+}
+
+.puntos {
+  height: 20px;
+  cursor: pointer;
+}
+
+.foto-music {
+  border-radius: 50%;
+  height: 30px;
+  height: 30px;
+}
+
+.puntos-final {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.aprobado {
+  height: 18px;
+}
+
+.titulo-cancion {
+  display: flex;
+}
+
+/* Tablets and above */
+@media only screen and (min-width: 758px) {
+  .input-search {
+    display: inline-flex;
+    width: 12rem;
+  }
+
+  .sidebar {
+    display: block;
+    height: calc(100vh - 50px);
+    background-color: #f0f0f0;
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+  }
+
+  .search-box-inner {
+    display: flex;
+    align-items: center;
+    border: 1px solid #636363;
+    border-radius: 1.5rem;
+    overflow: hidden;
+  }
+
+  .input-search {
+    border: none;
+    border-right: 1px solid #636363;
+    padding: 0.55rem 1rem;
+    font-size: 1rem;
+  }
+
+  .input-search:focus {
+    outline: none;
+    border-right: 1px solid rgb(4, 111, 251);
+  }
+
+  .btn-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    padding: 0.4rem 1rem;
+  }
+
+  .sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem;
+  }
+
+  .btn-search:hover {
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  .btn-search .icon-search img {
+    height: 1.2rem;
+    width: 1.2rem;
+    display: block;
+  }
+
+  .sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem;
+  }
+
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktops and above */
+@media only screen and (min-width: 1024px) {
+  .sidebar {
+    width: 250px;
+  }
+
+  .input-search {
+    width: 40rem;
+  }
+  .video-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
