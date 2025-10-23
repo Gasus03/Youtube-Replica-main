@@ -360,6 +360,32 @@
     background-color: #f0f0f0;
   }
 
+  .Explorar,
+  .Shorts,
+  .videojuegos-Explorar,
+  .mas-tarde,
+  .you-cursos,
+  .you-videos,
+  .Playlist,
+  .historial,
+  .Deportes,
+  .Aprendizaje,
+  .youtube-premium,
+  .youtube-studio,
+  .youtube-music,
+  .youtube-kids,
+  .settings,
+  .Denuncias,
+  .ayuda,
+  .comment,
+  .footer-sidebar {
+    display: none;
+  }
+
+  .Subcripciones {
+    display: none;
+  }
+
   .search-box {
     display: flex;
     align-items: center;
@@ -444,7 +470,13 @@
     display: none;
   }
 
-  .Shorts {
+  .subcripciones-alinear {
+    display: none;
+  }
+
+  .Shorts,
+  .you,
+  .Subcripcion {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -456,31 +488,7 @@
     width: 100%;
   }
 
-  .you {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: bold;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    width: 100%;
-  }
-
-  .Subcripciones {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: bold;
-    font-size: 0.8rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    width: 100%;
-  }
-
-  .Subcripciones:hover {
+  .Subcripcion:hover {
     cursor: pointer;
     background-color: #cfcfcf;
   }
@@ -552,58 +560,9 @@
     padding: 1rem;
   }
 
-  .Home {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-    font-weight: bold;
-    font-size: 0.8rem;
-    background-color: #e0e0e0;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    width: 100%;
-  }
-
-  .Shorts {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-    font-weight: bold;
-    font-size: 0.8rem;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    width: 100%;
-  }
-
-  .Subcripciones {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-    font-weight: bold;
-    font-size: 0.8rem;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    width: 100%;
-  }
-
   .Subcripciones:hover {
     cursor: pointer;
     background-color: #cfcfcf;
-  }
-
-  .historial {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-    font-weight: bold;
-    font-size: 0.8rem;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    width: 100%;
   }
 
   .historial .historial-img {
@@ -646,33 +605,9 @@
     height: 25px;
   }
 
-  .Playlist {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-    font-weight: bold;
-    font-size: 0.8rem;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    width: 100%;
-  }
-
   .Playlist:hover {
     cursor: pointer;
     background-color: #cfcfcf;
-  }
-
-  .you-videos {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-    font-weight: bold;
-    font-size: 0.8rem;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    width: 100%;
   }
 
   .you-videos-img {
@@ -684,17 +619,6 @@
     background-color: #cfcfcf;
   }
 
-  .you-cursos {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-    font-weight: bold;
-    font-size: 0.8rem;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    width: 100%;
-  }
   .you-cursos-img {
     height: 25px;
   }
@@ -702,18 +626,6 @@
   .you-cursos:hover {
     cursor: pointer;
     background-color: #cfcfcf;
-  }
-
-  .mas-tarde {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-    font-weight: bold;
-    font-size: 0.8rem;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    width: 100%;
   }
 
   .ver-tarde-img {
@@ -734,7 +646,27 @@
     border-radius: 50%;
   }
 
-  .Explorar {
+  .Explorar,
+  .Home,
+  .Shorts,
+  .videojuegos-Explorar,
+  .mas-tarde,
+  .you-cursos,
+  .you-videos,
+  .Playlist,
+  .historial,
+  .Subcripcion,
+  .Subcripciones,
+  .Deportes,
+  .Aprendizaje,
+  .youtube-premium,
+  .youtube-studio,
+  .youtube-music,
+  .youtube-kids,
+  .settings,
+  .Denuncias,
+  .ayuda,
+  .comment {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -746,13 +678,57 @@
     width: 100%;
   }
 
-  .Explorar:hover {
+  .videojuegos-img,
+  .deportes-img,
+  .aprendizaje-img,
+  .youtube-premiun-img,
+  .youtube-studio-img,
+  .youtube-music-img,
+  .youtube-kids-img,
+  .settings-img,
+  .denuncias-img,
+  .ayuda-img,
+  .comment-img {
+    height: 25px;
+  }
+
+  .Home {
+    background-color: #f0f0f0;
+  }
+
+  .Explorar:hover,
+  .videojuegos-Explorar:hover,
+  .Deportes:hover,
+  .Aprendizaje:hover,
+  .youtube-premium:hover,
+  .youtube-studio:hover,
+  .youtube-music:hover,
+  .youtube-kids:hover,
+  .settings:hover,
+  .Denuncias:hover,
+  .ayuda:hover,
+  .comment:hover {
     cursor: pointer;
     background-color: #cfcfcf;
   }
 
   .explorar-img {
     height: 25px;
+  }
+
+  .footer-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: small;
+    color: #909090;
+  }
+
+  .footer-sidebar:hover {
+    cursor: pointer;
+    text-decoration: underline;
   }
 
   .Shorts:hover {
