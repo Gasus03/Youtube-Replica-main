@@ -236,12 +236,15 @@
 .subheader {
   display: flex;
   align-items: center;
+  position: sticky;
+  z-index: 10;
+  top: 0;
   justify-content: start;
   gap: 0.8rem;
   padding: 0.5rem;
   overflow-x: auto;
   background: white; /* matches header background */
-  z-index: 9; /* below header but above content */
+  /* below header but above content */
 }
 
 .item {
@@ -416,9 +419,9 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    padding: 0.5rem;
     font-weight: bold;
     font-size: small;
-    background-color: #e0e0e0;
     border-radius: 0.5rem;
     width: 100%;
   }
@@ -433,7 +436,11 @@
     height: 20px;
   }
 
-  .historia {
+  .historial,
+  .Playlist,
+  .you-videos,
+  .you-cursos,
+  .mas-tarde {
     display: none;
   }
 
@@ -441,23 +448,41 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     font-weight: bold;
+    padding: 0.5rem;
     font-size: small;
-    background-color: #e0e0e0;
     border-radius: 0.5rem;
     width: 100%;
   }
+
   .you {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
     font-weight: bold;
     font-size: 1rem;
     border-radius: 0.5rem;
     padding: 0.5rem;
     width: 100%;
+  }
+
+  .Subcripciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+
+  .Subcripciones:hover {
+    cursor: pointer;
+    background-color: #cfcfcf;
   }
 
   .Shorts:hover {
@@ -468,7 +493,7 @@
   .sidebar-content {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 2rem;
     padding: 1rem;
   }
 
@@ -484,18 +509,46 @@
 /* Desktops and above */
 @media only screen and (min-width: 1024px) {
   .sidebar {
-    width: 250px;
+    width: 410px;
+  }
+  .subheader {
+    padding: 0.5rem;
+    gap: 0.8rem;
+    position: sticky;
+    top: 0;
   }
   .header-right {
     display: flex;
     gap: 1.15rem;
-    align-items: center; /* push this group to the far right */
+    align-items: center;
+    /* push this group to the far right */
+  }
+
+  .sidebar {
+    position: sticky;
+    /* Colocar la sidebar justo debajo del header para que no se corte
+     cuando el contenido principal haga scroll */
+    top: var(--header-height);
+    display: block;
+    background-color: #f0f0f0;
+    /* Asegurar que la sidebar se sitúe por debajo del header en la pila
+     de pintura, y por encima del contenido si es necesario */
+    z-index: 5;
+  }
+
+  /* Asegura que la sidebar no exceda la altura de la ventana
+     y tenga scroll interno cuando el contenido sea más alto */
+  .sidebar {
+    /* Reservamos la altura del header para evitar solapamiento */
+    height: calc(100vh - var(--header-height));
+    overflow-y: auto;
   }
 
   .sidebar-content {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    background-color: white;
     padding: 1rem;
   }
 
@@ -508,7 +561,7 @@
     font-size: 0.8rem;
     background-color: #e0e0e0;
     border-radius: 0.5rem;
-    padding: 0.8rem;
+    padding: 0.5rem;
     width: 100%;
   }
 
@@ -519,9 +572,8 @@
     gap: 1rem;
     font-weight: bold;
     font-size: 0.8rem;
-    background-color: #e0e0e0;
     border-radius: 0.5rem;
-    padding: 0.8rem;
+    padding: 0.5rem;
     width: 100%;
   }
 
@@ -532,9 +584,8 @@
     gap: 1rem;
     font-weight: bold;
     font-size: 0.8rem;
-    background-color: #e0e0e0;
     border-radius: 0.5rem;
-    padding: 0.8rem;
+    padding: 0.5rem;
     width: 100%;
   }
 
@@ -550,9 +601,8 @@
     gap: 1rem;
     font-weight: bold;
     font-size: 0.8rem;
-    background-color: #e0e0e0;
     border-radius: 0.5rem;
-    padding: 0.8rem;
+    padding: 0.5rem;
     width: 100%;
   }
 
@@ -568,15 +618,17 @@
   .historia {
     display: flex;
   }
-  .you {
+
+  .you,
+  .subcripciones-alinear {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0.6rem;
+    gap: 1rem;
+    padding: 0.5rem;
     font-weight: bold;
     font-size: 1rem;
     border-radius: 0.5rem;
-    padding: 0.5rem;
     width: 100%;
   }
 
@@ -585,8 +637,122 @@
     background-color: #cfcfcf;
   }
 
+  .subcripciones-alinear:hover {
+    cursor: pointer;
+    background-color: #cfcfcf;
+  }
+
+  .playlist-img {
+    height: 25px;
+  }
+
+  .Playlist {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  .Playlist:hover {
+    cursor: pointer;
+    background-color: #cfcfcf;
+  }
+
+  .you-videos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  .you-videos-img {
+    height: 25px;
+  }
+
+  .you-videos:hover {
+    cursor: pointer;
+    background-color: #cfcfcf;
+  }
+
+  .you-cursos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+  }
+  .you-cursos-img {
+    height: 25px;
+  }
+
+  .you-cursos:hover {
+    cursor: pointer;
+    background-color: #cfcfcf;
+  }
+
+  .mas-tarde {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  .ver-tarde-img {
+    height: 25px;
+  }
+
+  .mas-tarde:hover {
+    cursor: pointer;
+    background-color: #cfcfcf;
+  }
   .mayor {
     height: 8px;
+  }
+
+  .subcripciones-img {
+    height: 25px;
+    margin-left: 10px;
+    border-radius: 50%;
+  }
+
+  .Explorar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  .Explorar:hover {
+    cursor: pointer;
+    background-color: #cfcfcf;
+  }
+
+  .explorar-img {
+    height: 25px;
   }
 
   .Shorts:hover {
