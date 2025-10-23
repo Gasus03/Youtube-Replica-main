@@ -226,7 +226,9 @@
   flex-direction: column;
   gap: 0.3rem;
   padding: 10px;
-  overflow-x: hidden;
+  /* Evitar overflow en X no visible porque algunos ancestros con overflow
+     distinto de visible impiden que position:sticky funcione correctamente */
+  overflow-x: visible;
 }
 
 .menu-img {
@@ -548,14 +550,25 @@
     height: auto; /* deja que crezca naturalmente */
   }
 
+  /* Asegurar que el área de contenido ocupe el espacio restante
+     junto a la sidebar para que subheader tenga el ancho correcto */
+  .content-area {
+    flex: 1 1 auto;
+    min-width: 0; /* evita overflow/encogimiento inesperado dentro de flex */
+  }
+
   .subheader {
     position: sticky;
+    /* Mantener la subheader fija justo debajo del header */
+    top: var(--header-height);
     background-color: white;
     z-index: 9;
     display: flex;
     gap: 0.8rem;
     padding: 0.5rem 1rem;
     border-bottom: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box; /* que el padding no reduzca el ancho visible */
   }
   .header-right {
     display: flex;
